@@ -23,7 +23,10 @@ public class Test {
 		//conex();
 		//listar();
 		//listarE();
-		crear();
+		//crear();
+		//modificar();
+		//buscarid();
+		eliminar();
 	}
 	
 	static void conex() {
@@ -45,11 +48,31 @@ public class Test {
 	}
 	static void crear() {
 		AlumnoDao aldao = new AlumnoDaoImp();
-		if(aldao.create(new Alumno(0, 1, "Alimentos", "pablito roja", "pablito@gmail.com", "34343")) >= 1) {
+		if(aldao.create(new Alumno(0, 1, null, "Musolini del mar roja", "pablito@gmail.com", "34343")) >= 1) {
 			System.out.println("Alumno creado");
 		}else {
 			System.out.println("nel");
 		}
+	}
+	static void modificar() {
+		AlumnoDao aldao = new AlumnoDaoImp();
+		if(aldao.modificar(new Alumno(11, 3, null, "Musolini nuevo", "musilini@.com", "9786768")) >=1) {
+			System.out.println("Alumno modificado");
+		}else {
+			System.out.println("error");
+		}
+	}
+	static void buscarid() {
+		Gson g = new Gson();
+		AlumnoDao aldao = new AlumnoDaoImp();
+		System.out.println(g.toJson(aldao.buscarId(11)));
+	}
+	static void eliminar() {
+		Gson g = new Gson();
+		AlumnoDao aldao = new AlumnoDaoImp();
+		int x;
+		x = aldao.eliminar(19);
+		System.out.println(g.toJson(x));
 	}
 	
 	

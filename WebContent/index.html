@@ -9,7 +9,9 @@
   <!-- Bootstrap CSS -->
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" href="recursos/css/styles.css">
+
   <title>CASO CRUD</title>
 
 </head>
@@ -20,17 +22,19 @@
     <div class="d-flex flex-column mine-div2 p-5">
       <p class="align-self-center">Alumnos Upeu</p>
       <label for="a">Escuela</label>
-  						<select class="form-control" id="cat">
-  							<option>Selecccionar Escuela</option>
-  						</select>
-      <label for="">Apellidos y Nombres</label>
-      <input type="text" class="form-control" name="" value="">
-      <label for="">Correo</label>
-      <input type="text" class="form-control" name="" value="">
-      <label for="">Telefono</label>
-      <input type="text" name="" class="form-control" value="">
+      <select class="form-control" id="cat">
+        <option>Selecccionar Escuela</option>
+      </select>
+      <label for="apelnombres">Apellidos y Nombres</label>
+      <input type="text" class="form-control" name="apelnombres">
+      <label for="correo">Correo</label>
+      <input type="text" class="form-control" name="correo">
+      <label for="telefono">Telefono</label>
+      <input type="text" class="form-control" name="telefono">
+
+      <input type="hidden" name="id" id="id" value="0">
       <div class="form-group">
-        <button type="button" class="btn btn-primary " style="margin-top:10px;" name="button">Enviar</button>
+        <button type="button" class="btn btn-primary " style="margin-top:10px;" name="button" id="enviar">Enviar</button>
       </div>
 
 
@@ -45,10 +49,21 @@
             <th scope="col">Apellidos y Nombres</th>
             <th scope="col">Correo</th>
             <th scope="col">Telefono</th>
-            <th scope="col">Operaciones</th>
+            <th scope="col" colspan="2">Operaciones</th>
           </tr>
         </thead>
         <tbody id="lista">
+
+          <!--tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>323</td>
+            <td><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+            <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+          </tr-->
+
 
 
 
@@ -70,7 +85,11 @@
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js">
+
+  </script>
   <script type="text/javascript" src="recursos/js/jquery-3.5.1.min.js">
   </script>
   <script type="text/javascript" src="recursos/js/script.js">

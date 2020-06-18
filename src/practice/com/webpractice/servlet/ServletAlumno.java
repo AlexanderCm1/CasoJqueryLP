@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 
 import practice.com.webpractice.dao.AlumnoDao;
 import practice.com.webpractice.daoImp.AlumnoDaoImp;
+import practice.com.webpractice.entity.Alumno;
 
 /**
  * Servlet implementation class ServletAlumno
@@ -37,23 +38,55 @@ public class ServletAlumno extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
-		out.println(gson.toJson(alumnoDao.readAll()));
 		
 		
 		
 		/*
+		alumnoDao.create(new Alumno(0, Integer.parseInt(request.getParameter("escuela_id")),null , request.getParameter("apelnombres")
+				, request.getParameter("correo"), request.getParameter("telefono")));
+		
+		out.println("Alumno creado con exito");*/
+		
+		
+		
+		
 		int op = Integer.parseInt(request.getParameter("opc"));
 		switch (op) {
 		case 1:
+			out.println(gson.toJson(alumnoDao.readAll()));
+			break;
+		case 2:
+			alumnoDao.create(new Alumno(0, Integer.parseInt(request.getParameter("escuela_id")),null , request.getParameter("apelnombres")
+					, request.getParameter("correo"), request.getParameter("telefono")));
 			
+			out.println("Alumno creado con exito");
 			break;
 
+		case 3:
+			out.println(gson.toJson(alumnoDao.buscarId(Integer.parseInt(request.getParameter("id")))));
+			break;
+		
+		case 4:
+			
+			int alumno_id=Integer.parseInt(request.getParameter("alumno_id"));
+			int escuela_id= Integer.parseInt(request.getParameter("escuela_id"));
+			String apelnombres = request.getParameter("apelnombres");
+			String telefono = request.getParameter("telefono");
+			String correo = request.getParameter("correo");
+			
+			out.println(gson.toJson(alumnoDao.modificar(new Alumno(alumno_id, escuela_id, null, apelnombres, correo, telefono)) ));
+			
+			break;
+		case 5:
+			int x =alumnoDao.eliminar(Integer.parseInt(request.getParameter("id")));
+			out.println(gson.toJson(x));
+			break;
 		default:
 			break;
-		}*/
+		}
 		
 	}
 
